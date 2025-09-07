@@ -1,18 +1,15 @@
 import * as React from 'react';
-
 import { PickerStyleTag } from './Stylesheet/stylesheet';
 import { Reactions } from './components/Reactions/Reactions';
-import { Body } from './components/body/Body';
 import { ElementRefContextProvider } from './components/context/ElementRefContext';
 import { PickerConfigProvider } from './components/context/PickerConfigContext';
 import { useReactionsModeState } from './components/context/PickerContext';
-import { Preview } from './components/footer/Preview';
-import { Header } from './components/header/Header';
 import PickerMain from './components/main/PickerMain';
 import { compareConfig } from './config/compareConfig';
 import { useAllowExpandReactions, useOpenConfig } from './config/useConfig';
 
 import { PickerProps } from './index';
+import PickerMain from './components/main/PickerMain';
 
 function EmojiPicker(props: PickerProps) {
   return (
@@ -49,22 +46,7 @@ function ContentControl() {
   return (
     <PickerMain>
       <Reactions />
-      <ExpandedPickerContent renderAll={renderAll} />
     </PickerMain>
-  );
-}
-
-function ExpandedPickerContent({ renderAll }: { renderAll: boolean }) {
-  if (!renderAll) {
-    return null;
-  }
-
-  return (
-    <>
-      <Header />
-      <Body />
-      <Preview />
-    </>
   );
 }
 
